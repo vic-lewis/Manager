@@ -22,4 +22,12 @@ public class ToastUtils {
     public static void showShortToast(Context context, String str) {
         Toast.makeText(context, str, Toast.LENGTH_SHORT).show();
     }
+    
+    public static void showLongToastV2(Context context, String str) {
+        Toast.makeText(context, str, Toast.LENGTH_LONG).show();
+    }
+
+    public static void showShortToastV2(Context context, String str) {
+        Toast.makeText(context, str, Toast.LENGTH_SHORT).show();
+    }
 }
