@@ -38,4 +38,11 @@ public class ToastUtils {
     public static void showShortToastV3(Context context, String str) {
         Toast.makeText(context, str, Toast.LENGTH_SHORT).show();
     }
+
+    public static void showLongToastV4(Context context, String str) {
+        Toast.makeText(context, str, Toast.LENGTH_LONG).show();
+    }
+    public static void showShortToastV4(Context context, String str) {
+        Toast.makeText(context, str, Toast.LENGTH_SHORT).show();
+    }
 }
