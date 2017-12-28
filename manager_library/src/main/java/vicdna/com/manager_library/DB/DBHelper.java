@@ -39,8 +39,8 @@ public class DBHelper extends SQLiteOpenHelper {
     // bdc_news
     public static final String NID = "nid";
     public static final String TITLE = "title";
-    public static final String DATE = "date";
-    public static final String END = "end";
+    public static final String START_DATE = "start_date";
+    public static final String END_DATE = "end_date";
     public static final String IS_NEW = "is_new";
 
     // online get table
@@ -131,7 +131,7 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(DATABASE_CREATE_TABLE);
         // endregion
 
-        // local create table User's Mark region --------
+        //  local create table User's Mark region --------
         DATABASE_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME_MARK + " ("
                 + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
                 + UID + " TEXT,"
@@ -153,8 +153,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
                 + NID + " TEXT,"
                 + TITLE + " TEXT,"
-                + DATE + " TEXT,"
-                + END + " TEXT,"
+                + START_DATE + " TEXT,"
+                + END_DATE + " TEXT,"
                 + IS_NEW + " TEXT"
                 + ")";
 
