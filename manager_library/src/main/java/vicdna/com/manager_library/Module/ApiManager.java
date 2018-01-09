@@ -45,7 +45,7 @@ public class ApiManager {
      * @param httpParams
      * @param apiCallBack
      */
-    public void connectAPI(int requestMethod, String apiUrl, HttpParams httpParams, final ApiCallBack apiCallBack) {
+    public void connectAPI(int requestMethod, String apiUrl, HttpParams httpParams, final ApiCallBack apiCallBack, final String apiName) {
 
         if (requestMethod == METHOD_POST) {
             OkGo.<String>post(apiUrl)
@@ -62,7 +62,7 @@ public class ApiManager {
                         public void onError(Response<String> response) {
                             super.onError(response);
                             KLog.d(TAG, "onError response : " + response.code());
-                            apiCallBack.onApiStringCallBack(response.code(), "");
+                            apiCallBack.onApiStringCallBack(response.code(), "", apiName);
                         }
 
                         @Override
@@ -79,7 +79,7 @@ public class ApiManager {
                         @Override
                         public void onSuccess(Response<String> response) {
                             KLog.d(TAG, "response body : " + response.body().toString());
-                            apiCallBack.onApiStringCallBack(response.code(), response.body().toString());
+                            apiCallBack.onApiStringCallBack(response.code(), response.body().toString(), apiName);
                         }
                     });
         } else if (requestMethod == METHOD_GET) {
@@ -96,7 +96,7 @@ public class ApiManager {
                         public void onError(Response<String> response) {
                             super.onError(response);
                             KLog.d(TAG, "onError response : " + response.code());
-                            apiCallBack.onApiStringCallBack(response.code(), "");
+                            apiCallBack.onApiStringCallBack(response.code(), "", apiName);
                         }
 
                         @Override
@@ -113,7 +113,7 @@ public class ApiManager {
                         @Override
                         public void onSuccess(Response<String> response) {
                             KLog.d(TAG, "response body : " + response.body().toString());
-                            apiCallBack.onApiStringCallBack(response.code(), response.body().toString());
+                            apiCallBack.onApiStringCallBack(response.code(), response.body().toString(), apiName);
                         }
                     });
         }
@@ -195,7 +195,7 @@ public class ApiManager {
      * @param jsonObject
      * @param apiCallBack
      */
-    public void connectUpLoadJsonAPI(String url, JSONObject jsonObject, final ApiCallBack apiCallBack) {
+    public void connectUpLoadJsonAPI(String url, JSONObject jsonObject, final ApiCallBack apiCallBack, final String apiName) {
 
         OkGo.<String>post(url)
                 .tag(this)
@@ -204,12 +204,12 @@ public class ApiManager {
                     @Override
                     public void onError(Response<String> response) {
                         super.onError(response);
-                        apiCallBack.onApiStringCallBack(response.code(), "");
+                        apiCallBack.onApiStringCallBack(response.code(), "", apiName);
                     }
 
                     @Override
                     public void onSuccess(Response<String> response) {
-                        apiCallBack.onApiStringCallBack(response.code(), response.body());
+                        apiCallBack.onApiStringCallBack(response.code(), response.body(), apiName);
                     }
 
                     @Override
@@ -225,7 +225,7 @@ public class ApiManager {
      * @param url
      * @param upJsonString
      */
-    public void connectUpLoadStringAPI(String url, String upJsonString, final ApiCallBack apiCallBack) {
+    public void connectUpLoadStringAPI(String url, String upJsonString, final ApiCallBack apiCallBack, final String apiName) {
 
         OkGo.<String>post(url)
                 .tag(this)
@@ -234,12 +234,12 @@ public class ApiManager {
                     @Override
                     public void onError(Response<String> response) {
                         super.onError(response);
-                        apiCallBack.onApiStringCallBack(response.code(), "");
+                        apiCallBack.onApiStringCallBack(response.code(), "", apiName);
                     }
 
                     @Override
                     public void onSuccess(Response<String> response) {
-                        apiCallBack.onApiStringCallBack(response.code(), response.body());
+                        apiCallBack.onApiStringCallBack(response.code(), response.body(), apiName);
                     }
 
                     @Override

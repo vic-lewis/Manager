@@ -5,5 +5,5 @@ package vicdna.com.manager_library.Interface;
  */
 
 public interface ApiCallBack {
-    void onApiStringCallBack(int status, String response);
+    void onApiStringCallBack(int status, String response, String apiName);
 }
