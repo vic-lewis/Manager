@@ -10,7 +10,6 @@ import com.lzy.okgo.model.HttpParams;
 import com.lzy.okgo.model.Progress;
 import com.lzy.okgo.model.Response;
 import com.lzy.okgo.request.base.Request;
-import com.socks.library.KLog;
 
 import org.json.JSONObject;
 
@@ -54,14 +53,12 @@ public class ApiManager {
                     .execute(new StringCallback() {
                         @Override
                         public String convertResponse(okhttp3.Response response) throws Throwable {
-                            KLog.d(TAG, "convertResponse : " + response);
                             return super.convertResponse(response);
                         }
 
                         @Override
                         public void onError(Response<String> response) {
                             super.onError(response);
-                            KLog.d(TAG, "onError response : " + response.code());
                             apiCallBack.onApiStringCallBack(response.code(), "", apiName);
                         }
 
@@ -73,12 +70,10 @@ public class ApiManager {
                         @Override
                         public void onStart(Request<String, ? extends Request> request) {
                             super.onStart(request);
-                            KLog.d(TAG, "getBaseUrl : " + request.getBaseUrl());
                         }
 
                         @Override
                         public void onSuccess(Response<String> response) {
-                            KLog.d(TAG, "response body : " + response.body().toString());
                             apiCallBack.onApiStringCallBack(response.code(), response.body().toString(), apiName);
                         }
                     });
@@ -88,14 +83,12 @@ public class ApiManager {
                     .execute(new StringCallback() {
                         @Override
                         public String convertResponse(okhttp3.Response response) throws Throwable {
-                            KLog.d(TAG, "convertResponse : " + response);
                             return super.convertResponse(response);
                         }
 
                         @Override
                         public void onError(Response<String> response) {
                             super.onError(response);
-                            KLog.d(TAG, "onError response : " + response.code());
                             apiCallBack.onApiStringCallBack(response.code(), "", apiName);
                         }
 
@@ -107,12 +100,10 @@ public class ApiManager {
                         @Override
                         public void onStart(Request<String, ? extends Request> request) {
                             super.onStart(request);
-                            KLog.d(TAG, "getBaseUrl : " + request.getBaseUrl());
                         }
 
                         @Override
                         public void onSuccess(Response<String> response) {
-                            KLog.d(TAG, "response body : " + response.body().toString());
                             apiCallBack.onApiStringCallBack(response.code(), response.body().toString(), apiName);
                         }
                     });
